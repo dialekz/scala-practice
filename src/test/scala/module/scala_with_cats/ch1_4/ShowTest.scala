@@ -1,8 +1,8 @@
-package module.`scala-with-cats`.ch1_4
+package module.scala_with_cats.ch1_4
 
 import cats.implicits.toShow
-import module.`scala-with-cats`.ch1_3.Cat
-import module.`scala-with-cats`.ch1_4.ShowInstanceCat._
+import module.scala_with_cats.ch1_3.Cat
+import module.scala_with_cats.ch1_4.ShowInstanceCat._
 import org.scalatest.funsuite.AnyFunSuite
 
 class ShowTest extends AnyFunSuite {

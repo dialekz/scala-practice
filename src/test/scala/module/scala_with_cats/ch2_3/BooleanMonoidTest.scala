@@ -1,7 +1,7 @@
-package module.`scala-with-cats`.ch2_3
+package module.scala_with_cats.ch2_3
 
 import cats.{Monoid, Semigroup}
-import module.`scala-with-cats`.ch2_3.BooleanMonoid._
+import module.scala_with_cats.ch2_3.BooleanMonoid._
 import org.scalatest.funsuite.AnyFunSuite
 
 class BooleanMonoidTest extends AnyFunSuite {

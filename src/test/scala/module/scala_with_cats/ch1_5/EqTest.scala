@@ -1,8 +1,8 @@
-package module.`scala-with-cats`.ch1_5
+package module.scala_with_cats.ch1_5
 
 import cats.implicits.{catsKernelStdEqForOption, catsSyntaxEq, catsSyntaxOptionId, none}
-import module.`scala-with-cats`.ch1_3.Cat
-import module.`scala-with-cats`.ch1_5.EqInstanceCat._
+import module.scala_with_cats.ch1_3.Cat
+import module.scala_with_cats.ch1_5.EqInstanceCat._
 import org.scalatest.funsuite.AnyFunSuite
 
 class EqTest extends AnyFunSuite {

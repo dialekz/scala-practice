@@ -1,6 +1,6 @@
-package module.`scala-with-cats`.ch1_3
+package module.scala_with_cats.ch1_3
 
-import module.`scala-with-cats`.ch1_3.Printable
+import module.scala_with_cats.ch1_3.Printable
 
 object PrintableInstances {
   implicit object PrintableString extends Printable[String] {

@@ -1,4 +1,4 @@
-package module.`scala-with-cats`.ch1_3
+package module.scala_with_cats.ch1_3
 
 import org.scalatest.funsuite.AnyFunSuite
 

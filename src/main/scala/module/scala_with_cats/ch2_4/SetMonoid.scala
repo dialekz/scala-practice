@@ -1,4 +1,4 @@
-package module.`scala-with-cats`.ch2_4
+package module.scala_with_cats.ch2_4
 
 import cats.{Monoid, Semigroup}
 
