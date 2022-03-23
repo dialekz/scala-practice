@@ -6,8 +6,11 @@ lazy val root = (project in file("."))
     name := "scala-practice"
   )
 
+Compile / resourceDirectory := baseDirectory.value / "resources"
+
 val AkkaVersion = "2.6.8"
 val AkkaHttpVersion = "10.2.7"
+val QuillVersion = "1.2.2-SNAPSHOT"
 
 libraryDependencies ++= Seq(
   "com.typesafe.akka" %% "akka-actor-typed" % AkkaVersion,
@@ -16,5 +19,15 @@ libraryDependencies ++= Seq(
 
   "org.typelevel" %% "cats-core" % "2.1.0",
 
+  //  "io.getquill" %% "quill-async-postgres" % QuillVersion,
+  //  "io.getquill" %% "quill-jdbc" % QuillVersion,
+
+  //  "io.getquill"          %% "quill-jdbc-zio" % "3.12.0",
+  //  "io.github.kitlangton" %% "zio-magic"      % "0.3.11",
+
+  "io.getquill" %% "quill-jdbc" % "3.16.3",
+  "org.postgresql" % "postgresql" % "42.3.3",
+
   "org.scalatest" %% "scalatest" % "3.2.7" % Test,
+  "com.h2database" % "h2" % "2.1.210" % Test,
 )
