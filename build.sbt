@@ -27,6 +27,7 @@ libraryDependencies ++= Seq(
 
   "io.getquill" %% "quill-jdbc" % "3.16.3",
   "org.postgresql" % "postgresql" % "42.3.3",
+  "com.github.pureconfig" %% "pureconfig" % "0.17.1",
 
   "org.scalatest" %% "scalatest" % "3.2.7" % Test,
   "com.h2database" % "h2" % "2.1.210" % Test,
