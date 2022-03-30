@@ -7,7 +7,7 @@ import component.ConfigComponent.ServerConfig
 
 import scala.concurrent.{ExecutionContextExecutor, Future}
 
-case class ServerComponent(config: ServerConfig, route: Route)(
+class ServerComponent(config: ServerConfig, route: Route)(
   implicit
   val system: ActorSystem[Nothing],
   val ec: ExecutionContextExecutor

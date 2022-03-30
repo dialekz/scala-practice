@@ -19,15 +19,9 @@ libraryDependencies ++= Seq(
 
   "org.typelevel" %% "cats-core" % "2.1.0",
 
-  //  "io.getquill" %% "quill-async-postgres" % QuillVersion,
-  //  "io.getquill" %% "quill-jdbc" % QuillVersion,
-
-  //  "io.getquill"          %% "quill-jdbc-zio" % "3.12.0",
-  //  "io.github.kitlangton" %% "zio-magic"      % "0.3.11",
-
   "io.getquill" %% "quill-jdbc" % "3.16.3",
-  "org.postgresql" % "postgresql" % "42.3.3",
   "com.github.pureconfig" %% "pureconfig" % "0.17.1",
+  "org.flywaydb" % "flyway-core" % "6.3.2",
 
   "org.scalatest" %% "scalatest" % "3.2.7" % Test,
   "com.h2database" % "h2" % "2.1.210" % Test,

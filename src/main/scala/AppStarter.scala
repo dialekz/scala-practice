@@ -9,9 +9,9 @@ object AppStarter extends App {
   implicit val ec: ExecutionContextExecutor = ExecutionContext.global
 
   for {
-    config <- ConfigComponent().load()
-    routesComponent = RoutesComponent()
-    serverComponent = ServerComponent(config.server, routesComponent.concatRoute())
+    config <- new ConfigComponent().load()
+    routesComponent = new RoutesComponent()
+    serverComponent = new ServerComponent(config.server, routesComponent.concatRoute())
     _ = serverComponent.startNewServer()
   } yield ()
 }

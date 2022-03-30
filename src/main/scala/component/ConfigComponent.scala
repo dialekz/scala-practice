@@ -4,7 +4,7 @@ import pureconfig.ConfigReader.Result
 import pureconfig.generic.auto._
 import pureconfig.ConfigSource
 
-case class ConfigComponent() {
+class ConfigComponent() {
   import ConfigComponent._
 
   def load(): Result[AppConfig] = ConfigSource.default.load[AppConfig]
@@ -12,6 +12,6 @@ case class ConfigComponent() {
 
 object ConfigComponent {
   case class AppConfig(db: DBConfig, server: ServerConfig)
-  case class DBConfig(className: String, memurl: String, diskurl: String, user: String, pass: String)
+  case class DBConfig(className: String, memurl: String, diskurl: String, user: String, pass: String, h2Type: String)
   case class ServerConfig(url: String, port: Int)
 }
