@@ -1,16 +1,17 @@
 import akka.actor.typed.ActorSystem
 import akka.actor.typed.scaladsl.Behaviors
-import akka.http.scaladsl.Http
-import akka.http.scaladsl.server.Directives
-import component.RoutesComponent
+import component.{ConfigComponent, RoutesComponent, ServerComponent}
+
+import scala.concurrent.{ExecutionContext, ExecutionContextExecutor}
 
 object AppStarter extends App {
   implicit val system: ActorSystem[Nothing] = ActorSystem(Behaviors.empty, "det-jobbar-service")
+  implicit val ec: ExecutionContextExecutor = ExecutionContext.global
 
-  val routesComponent = RoutesComponent()
-  val concatRoute = Directives.concat(routesComponent.routeBeans.flatMap(_.routes):_*)
-
-  val bindingFuture = Http()
-    .newServerAt("localhost", 8080)
-    .bind(concatRoute)
+  for {
+    config <- new ConfigComponent().load()
+    routesComponent = new RoutesComponent()
+    serverComponent = new ServerComponent(config.server, routesComponent.concatRoute())
+    _ = serverComponent.startNewServer()
+  } yield ()
 }
