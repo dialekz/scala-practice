@@ -29,7 +29,7 @@ class BaseQuillContext(cfg: AppConfig) {
     else ConfigFactory.parseMap(diskMap)
   }
 
-  def initH2Db(cfg: AppConfig): Int = {
+  def initH2Db: Int = {
     val dataSource = if (cfg.db.h2Type == "memory") cfg.db.memurl else cfg.db.diskurl
     Flyway
       .configure()

@@ -1,25 +1,25 @@
-//package module.quill_practice
-//
-//import component.ConfigComponent
-//import module.quill_practice.model.Circle
-//import org.scalatest.funsuite.AnyFunSuite
-//import pureconfig.error.ConfigReaderFailures
-//
-//class Quill00CompileTimeQuotationsTest extends AnyFunSuite with AbstractQuillTest {
-//
-//  val ctx: BaseQuillContext =  for {
-//    config <- new ConfigComponent().load()
-//    context = new BaseQuillContext(config)
-//  } yield context.
-//
-//  val solution  = new Quill00CompileTimeQuotations(ctx)
-//
-//  test("Test query filter by radius") {
-//    val expected = Circle(radius = 0.5f)
-//
-//    Quill00CompileTimeQuotations.add(expected)
-//
-//    val result: ctx.QueryMirror[Circle] = ctx.run(Quill00CompileTimeQuotations.q)
-//    assert(result.equals(expected))
-//  }
-//}
+package module.quill_practice
+
+import module.quill_practice.model.Circle
+
+class Quill00CompileTimeQuotationsTest extends AbstractQuillTestWithContext {
+
+  private val solution = for {
+    ctx <- context
+    solution = new Quill00CompileTimeQuotations(ctx)
+  } yield solution
+
+  test("Test query filter by radius") {
+    val expected = Circle(radius = 0.5f)
+
+    for {
+      s <- solution
+      _ = s.add(expected)
+      result = s.filterByRadius(0f)
+      empty = s.filterByRadius(1f)
+    } yield {
+      assert(result.equals(List(expected)))
+      assert(empty.isEmpty)
+    }
+  }
+}

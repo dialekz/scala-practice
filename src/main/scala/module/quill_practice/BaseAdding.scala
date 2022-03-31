@@ -1,12 +1,12 @@
 package module.quill_practice
 
-import io.getquill.{H2JdbcContext, SnakeCase}
-import io.getquill.mirrorContextWithQueryProbing._
+import io.getquill.context.jdbc.JdbcContext
+import io.getquill.{H2Dialect, SnakeCase}
 import module.quill_practice.model.Circle
 
-trait BaseAdding {
+abstract class BaseAdding(ctx: JdbcContext[H2Dialect, SnakeCase.type]) {
 
-  def add(value: Circle)(implicit ctx: H2JdbcContext[SnakeCase]): Unit = ctx.run(quote {
-    query[Circle].insertValue(lift(value))
-  })
+  import ctx._
+
+  def add(value: Circle): Long = run(query[Circle].insertValue(lift(value)))
 }
