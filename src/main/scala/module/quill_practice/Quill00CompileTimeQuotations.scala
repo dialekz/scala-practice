@@ -4,7 +4,7 @@ import io.getquill._
 import io.getquill.context.jdbc.JdbcContext
 import module.quill_practice.model.Circle
 
-class Quill00CompileTimeQuotations(ctx: JdbcContext[H2Dialect, SnakeCase.type]) extends BaseAdding(ctx) {
+class Quill00CompileTimeQuotations(ctx: JdbcContext[H2Dialect, SnakeCase.type]) extends AbstractAdding(ctx) {
 
   import ctx._
 

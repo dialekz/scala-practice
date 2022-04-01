@@ -4,7 +4,7 @@ import io.getquill.context.jdbc.JdbcContext
 import io.getquill.{H2Dialect, SnakeCase}
 import module.quill_practice.model.Circle
 
-abstract class BaseAdding(ctx: JdbcContext[H2Dialect, SnakeCase.type]) {
+abstract class AbstractAdding(ctx: JdbcContext[H2Dialect, SnakeCase.type]) {
 
   import ctx._
 
